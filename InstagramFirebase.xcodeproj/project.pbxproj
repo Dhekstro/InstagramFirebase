@@ -13,6 +13,8 @@
 		C76B8EC01E90D86B008A8378 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B8EBF1E90D86B008A8378 /* SharePhotoController.swift */; };
 		C785F0731E8EE3570053AFB5 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785F0721E8EE3570053AFB5 /* PhotoSelectorHeader.swift */; };
 		C7966F9C1E85F4910054FE2A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7966F9B1E85F4910054FE2A /* LoginController.swift */; };
+		C7CE53801E948F5900AE9D13 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE537F1E948F5900AE9D13 /* Post.swift */; };
+		C7CE53821E94902800AE9D13 /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE53811E94902800AE9D13 /* UserProfilePhotoCell.swift */; };
 		C7D90C8D1E7A24F7008526BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90C8C1E7A24F7008526BE /* AppDelegate.swift */; };
 		C7D90C8F1E7A24F7008526BE /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90C8E1E7A24F7008526BE /* SignUpController.swift */; };
 		C7D90C921E7A24F7008526BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D90C901E7A24F7008526BE /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		C76B8EBF1E90D86B008A8378 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		C785F0721E8EE3570053AFB5 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		C7966F9B1E85F4910054FE2A /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C7CE537F1E948F5900AE9D13 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C7CE53811E94902800AE9D13 /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		C7D90C891E7A24F7008526BE /* InstagramFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D90C8C1E7A24F7008526BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7D90C8E1E7A24F7008526BE /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		C7CE537E1E948F5100AE9D13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7CE537F1E948F5900AE9D13 /* Post.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C7D90C801E7A24F7008526BE = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +121,7 @@
 		C7D90C8B1E7A24F7008526BE /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				C7CE537E1E948F5100AE9D13 /* Models */,
 				C703FB5D1E8D625300CC957D /* AddPhoto */,
 				C7966F9A1E85F4880054FE2A /* Login */,
 				C7FC59961E83342B0051CD10 /* UserProfile */,
@@ -137,6 +150,7 @@
 			children = (
 				C7FC598E1E82F2CE0051CD10 /* UserProfileController.swift */,
 				C7FC59971E8334370051CD10 /* UserProfileHeader.swift */,
+				C7CE53811E94902800AE9D13 /* UserProfilePhotoCell.swift */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -278,7 +292,9 @@
 				C76B8EC01E90D86B008A8378 /* SharePhotoController.swift in Sources */,
 				C7D90C8F1E7A24F7008526BE /* SignUpController.swift in Sources */,
 				C70E58BD1E8E10840092EA7B /* PhotoSelectorCell.swift in Sources */,
+				C7CE53801E948F5900AE9D13 /* Post.swift in Sources */,
 				C7FC59751E7DF8A20051CD10 /* Extensions.swift in Sources */,
+				C7CE53821E94902800AE9D13 /* UserProfilePhotoCell.swift in Sources */,
 				C7FC598D1E82F2220051CD10 /* MainTabBarController.swift in Sources */,
 				C7FC59981E8334370051CD10 /* UserProfileHeader.swift in Sources */,
 				C7FC598F1E82F2CE0051CD10 /* UserProfileController.swift in Sources */,
