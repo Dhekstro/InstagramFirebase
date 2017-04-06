@@ -31,7 +31,8 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             plusPhotoButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+        } else if let originalImage =
+            info["UIImagePickerControllerOriginalImage"] as? UIImage {
             plusPhotoButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
         
