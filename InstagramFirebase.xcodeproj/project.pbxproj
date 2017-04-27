@@ -28,6 +28,7 @@
 		C7D90C921E7A24F7008526BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D90C901E7A24F7008526BE /* Main.storyboard */; };
 		C7D90C941E7A24F7008526BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D90C931E7A24F7008526BE /* Assets.xcassets */; };
 		C7D90C971E7A24F7008526BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D90C951E7A24F7008526BE /* LaunchScreen.storyboard */; };
+		C7E3EB021EB167E90017A8DE /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3EB011EB167E90017A8DE /* PreviewPhotoContainerView.swift */; };
 		C7FC59751E7DF8A20051CD10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC59741E7DF8A20051CD10 /* Extensions.swift */; };
 		C7FC597D1E8090010051CD10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FC597C1E8090010051CD10 /* GoogleService-Info.plist */; };
 		C7FC598D1E82F2220051CD10 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC598C1E82F2220051CD10 /* MainTabBarController.swift */; };
@@ -59,6 +60,7 @@
 		C7D90C931E7A24F7008526BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7D90C961E7A24F7008526BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7D90C981E7A24F7008526BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7E3EB011EB167E90017A8DE /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		C7FC59741E7DF8A20051CD10 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C7FC597C1E8090010051CD10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7FC598C1E82F2220051CD10 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				C70521C41EAEE40300AC8D35 /* CameraController.swift */,
+				C7E3EB011EB167E90017A8DE /* PreviewPhotoContainerView.swift */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				C7FC59981E8334370051CD10 /* UserProfileHeader.swift in Sources */,
 				C7FC598F1E82F2CE0051CD10 /* UserProfileController.swift in Sources */,
 				C7D90C8D1E7A24F7008526BE /* AppDelegate.swift in Sources */,
+				C7E3EB021EB167E90017A8DE /* PreviewPhotoContainerView.swift in Sources */,
 				C7966F9C1E85F4910054FE2A /* LoginController.swift in Sources */,
 				C77C56051E9727F30041AB85 /* HomePostCell.swift in Sources */,
 				C785F0731E8EE3570053AFB5 /* PhotoSelectorHeader.swift in Sources */,
