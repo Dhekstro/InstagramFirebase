@@ -91,7 +91,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 
                 guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
                 FIRDatabase.database().reference().child("likes").child(key).child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                    print(snapshot)
+//                    print(snapshot)
                     
                     if let value = snapshot.value as? Int, value == 1 {
                         post.hasLiked = true
