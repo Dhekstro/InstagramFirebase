@@ -68,9 +68,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             
             guard var allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
             
-            allObjects.reverse()
-            
-            allObjects.reverse()
+            allObjects.reverse()            
             
             if allObjects.count < 4 {
                 self.isFinishedPaging = true
