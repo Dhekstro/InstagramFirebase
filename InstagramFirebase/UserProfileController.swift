@@ -49,7 +49,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         print("Start paging for more posts")
         
         guard let uid = self.user?.uid else { return }
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
+        let ref = Database.database().reference().child("posts").child(uid)
         
 //        let value = "-Kh0B6AleC8OgIF-mZNT"
 //        let query = ref.queryOrderedByKey().queryStarting(atValue: value).queryLimited(toFirst: 6)
@@ -66,7 +66,9 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         query.queryLimited(toLast: 4).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            guard var allObjects = snapshot.children.allObjects as? [FIRDataSnapshot] else { return }
+            guard var allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            allObjects.reverse()
             
             allObjects.reverse()
             
@@ -105,7 +107,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     fileprivate func fetchOrderedPosts() {
         guard let uid = self.user?.uid else { return }
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
+        let ref = Database.database().reference().child("posts").child(uid)
         
         //perhaps later on we'll implement some pagination of data
         ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
@@ -129,13 +131,13 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
     }
     
-    func handleLogOut() {
+    @objc func handleLogOut() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
             
             do {
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
                 
                 //what happens? we need to present some kind of login controller
                 let loginController = LoginController()
@@ -220,11 +222,11 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     var user: User?
     fileprivate func fetchUser() {
         
-        let uid = userId ?? (FIRAuth.auth()?.currentUser?.uid ?? "")
+        let uid = userId ?? (Auth.auth().currentUser?.uid ?? "")
         
-        //guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        //guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
+        Database.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
             self.navigationItem.title = self.user?.username
             

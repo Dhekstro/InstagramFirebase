@@ -18,7 +18,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         return button
     }()
     
-    func handlePlusPhoto() {
+    @objc func handlePlusPhoto() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
@@ -56,7 +56,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         return tf
     }()
     
-    func handleTextInputChange() {
+    @objc func handleTextInputChange() {
         let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 && usernameTextField.text?.characters.count ?? 0 > 0 && passwordTextField.text?.characters.count ?? 0 > 0
         
         if isFormValid {
@@ -105,12 +105,12 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         return button
     }()
     
-    func handleSignUp() {
+    @objc func handleSignUp() {
         guard let email = emailTextField.text, email.characters.count > 0 else { return }
         guard let username = usernameTextField.text, username.characters.count > 0 else { return }
         guard let password = passwordTextField.text, password.characters.count > 0 else { return }
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error: Error?) in
             
             if let err = error {
                 print("Failed to create user:", err)
@@ -124,7 +124,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
             guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
             
             let filename = NSUUID().uuidString
-            FIRStorage.storage().reference().child("profile_images").child(filename).put(uploadData, metadata: nil, completion: { (metadata, err) in
+            Storage.storage().reference().child("profile_images").child(filename).putData(uploadData, metadata: nil, completion: { (metadata, err) in
                 
                 if let err = err {
                     print("Failed to upload profile image:", err)
@@ -140,7 +140,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                 let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
                 let values = [uid: dictionaryValues]
                 
-                FIRDatabase.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+                Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
                     
                     if let err = err {
                         print("Failed to save user info into db:", err)
@@ -166,9 +166,9 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     let alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
-        attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.rgb(red: 17, green: 154, blue: 237)
+        attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
             ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
@@ -177,7 +177,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         return button
     }()
     
-    func handleAlreadyHaveAccount() {
+    @objc func handleAlreadyHaveAccount() {
         _ = navigationController?.popViewController(animated: true)
     }
 

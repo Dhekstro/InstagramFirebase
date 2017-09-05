@@ -49,7 +49,7 @@ class LoginController: UIViewController {
         return tf
     }()
     
-    func handleTextInputChange() {
+    @objc func handleTextInputChange() {
         let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 && passwordTextField.text?.characters.count ?? 0 > 0
         
         if isFormValid {
@@ -77,11 +77,11 @@ class LoginController: UIViewController {
         return button
     }()
     
-    func handleLogin() {
+    @objc func handleLogin() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, err) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, err) in
             
             if let err = err {
                 print("Failed to sign in with email:", err)
@@ -102,9 +102,9 @@ class LoginController: UIViewController {
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.rgb(red: 17, green: 154, blue: 237)
+        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
             ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
@@ -113,7 +113,7 @@ class LoginController: UIViewController {
         return button
     }()
     
-    func handleShowSignUp() {
+    @objc func handleShowSignUp() {
         let signUpController = SignUpController()
         navigationController?.pushViewController(signUpController, animated: true)
     }

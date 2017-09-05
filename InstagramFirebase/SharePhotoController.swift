@@ -54,7 +54,7 @@ class SharePhotoController: UIViewController {
         textView.anchor(top: containerView.topAnchor, left: imageView.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 4, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     
-    func handleShare() {
+    @objc func handleShare() {
         guard let caption = textView.text, caption.characters.count > 0 else { return }
         guard let image = selectedImage else { return }
         
@@ -63,7 +63,7 @@ class SharePhotoController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         let filename = NSUUID().uuidString
-        FIRStorage.storage().reference().child("posts").child(filename).put(uploadData, metadata: nil) { (metadata, err) in
+        Storage.storage().reference().child("posts").child(filename).putData(uploadData, metadata: nil) { (metadata, err) in
             
             if let err = err {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -85,9 +85,9 @@ class SharePhotoController: UIViewController {
         guard let postImage = selectedImage else { return }
         guard let caption = textView.text else { return }
         
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let userPostRef = FIRDatabase.database().reference().child("posts").child(uid)
+        let userPostRef = Database.database().reference().child("posts").child(uid)
         let ref = userPostRef.childByAutoId()
         
         let values = ["imageUrl": imageUrl, "caption": caption, "imageWidth": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]

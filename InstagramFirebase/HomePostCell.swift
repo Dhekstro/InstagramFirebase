@@ -43,14 +43,14 @@ class HomePostCell: UICollectionViewCell {
     fileprivate func setupAttributedCaption() {
         guard let post = self.post else { return }
         
-        let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+        let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
         
-        attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
+        attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
         
-        attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 4)]))
+        attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 4)]))
         
         let timeAgoDisplay = post.creationDate.timeAgoDisplay()
-        attributedText.append(NSAttributedString(string: timeAgoDisplay, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: timeAgoDisplay, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.gray]))
         
         captionLabel.attributedText = attributedText
     }
@@ -90,7 +90,7 @@ class HomePostCell: UICollectionViewCell {
         return button
     }()
     
-    func handleLike() {
+    @objc func handleLike() {
         print("Handling like from within cell...")
         delegate?.didLike(for: self)
     }
@@ -102,7 +102,7 @@ class HomePostCell: UICollectionViewCell {
         return button
     }()
     
-    func handleComment() {
+    @objc func handleComment() {
         print("Trying to show comments...")
         guard let post = post else { return }
         
