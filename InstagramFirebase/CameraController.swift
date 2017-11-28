@@ -100,10 +100,10 @@ class CameraController: UIViewController, AVCapturePhotoCaptureDelegate, UIViewC
         let captureSession = AVCaptureSession()
         
         //1. setup inputs
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         do {
-            let input = try AVCaptureDeviceInput(device: captureDevice)
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
             if captureSession.canAddInput(input) {
                 captureSession.addInput(input)
             }
