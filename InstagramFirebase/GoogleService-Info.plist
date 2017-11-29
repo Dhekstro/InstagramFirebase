@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>506999580122-batljhil4paao25celmu4nvbbhn5cakq.apps.googleusercontent.com</string>
+	<string>506999580122-t38av2k5duq71mktmeafc6heshr65s8s.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.506999580122-batljhil4paao25celmu4nvbbhn5cakq</string>
+	<string>com.googleusercontent.apps.506999580122-t38av2k5duq71mktmeafc6heshr65s8s</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAI89O0rguktiP6UUGqBUc6vcJsgunA4D0</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,23 +17,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.letsbuildthatapp.InstagramFirebase</string>
+	<string>com.letsbuildthatapp.InstagramFirebasePush</string>
 	<key>PROJECT_ID</key>
 	<string>instagramfirebase-5da00</string>
 	<key>STORAGE_BUCKET</key>
 	<string>instagramfirebase-5da00.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:506999580122:ios:bbb94795582bd573</string>
+	<string>1:506999580122:ios:f9f4ac0d07172f9f</string>
 	<key>DATABASE_URL</key>
 	<string>https://instagramfirebase-5da00.firebaseio.com</string>
 </dict>

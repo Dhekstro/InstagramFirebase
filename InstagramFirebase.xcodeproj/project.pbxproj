@@ -11,6 +11,7 @@
 		C703FB5F1E8D626200CC957D /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703FB5E1E8D626200CC957D /* PhotoSelectorController.swift */; };
 		C70521C51EAEE40300AC8D35 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70521C41EAEE40300AC8D35 /* CameraController.swift */; };
 		C70E58BD1E8E10840092EA7B /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70E58BC1E8E10840092EA7B /* PhotoSelectorCell.swift */; };
+		C762817C1FCE310D00B596A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C762817B1FCE310D00B596A6 /* GoogleService-Info.plist */; };
 		C76B8EC01E90D86B008A8378 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B8EBF1E90D86B008A8378 /* SharePhotoController.swift */; };
 		C77C55F31E95FCF00041AB85 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77C55F21E95FCF00041AB85 /* CustomImageView.swift */; };
 		C77C56031E97271E0041AB85 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77C56021E97271E0041AB85 /* HomeController.swift */; };
@@ -33,7 +34,6 @@
 		C7D90C971E7A24F7008526BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D90C951E7A24F7008526BE /* LaunchScreen.storyboard */; };
 		C7E3EB021EB167E90017A8DE /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3EB011EB167E90017A8DE /* PreviewPhotoContainerView.swift */; };
 		C7FC59751E7DF8A20051CD10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC59741E7DF8A20051CD10 /* Extensions.swift */; };
-		C7FC597D1E8090010051CD10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FC597C1E8090010051CD10 /* GoogleService-Info.plist */; };
 		C7FC598D1E82F2220051CD10 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC598C1E82F2220051CD10 /* MainTabBarController.swift */; };
 		C7FC598F1E82F2CE0051CD10 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC598E1E82F2CE0051CD10 /* UserProfileController.swift */; };
 		C7FC59981E8334370051CD10 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC59971E8334370051CD10 /* UserProfileHeader.swift */; };
@@ -46,6 +46,8 @@
 		C703FB5E1E8D626200CC957D /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		C70521C41EAEE40300AC8D35 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		C70E58BC1E8E10840092EA7B /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
+		C762817A1FCE2CCB00B596A6 /* InstagramFirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstagramFirebase.entitlements; sourceTree = "<group>"; };
+		C762817B1FCE310D00B596A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C76B8EBF1E90D86B008A8378 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		C77C55F21E95FCF00041AB85 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		C77C56021E97271E0041AB85 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 		C7D90C981E7A24F7008526BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7E3EB011EB167E90017A8DE /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		C7FC59741E7DF8A20051CD10 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		C7FC597C1E8090010051CD10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7FC598C1E82F2220051CD10 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C7FC598E1E82F2CE0051CD10 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		C7FC59971E8334370051CD10 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		C7D90C8B1E7A24F7008526BE /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				C762817A1FCE2CCB00B596A6 /* InstagramFirebase.entitlements */,
 				C70521C31EAEE3F000AC8D35 /* Camera */,
 				C7BAE96F1EA035E400B0375D /* Search */,
 				C77C56011E9727140041AB85 /* Home */,
@@ -196,7 +198,7 @@
 				C7D90C931E7A24F7008526BE /* Assets.xcassets */,
 				C7D90C951E7A24F7008526BE /* LaunchScreen.storyboard */,
 				C7D90C981E7A24F7008526BE /* Info.plist */,
-				C7FC597C1E8090010051CD10 /* GoogleService-Info.plist */,
+				C762817B1FCE310D00B596A6 /* GoogleService-Info.plist */,
 			);
 			path = InstagramFirebase;
 			sourceTree = "<group>";
@@ -265,9 +267,17 @@
 				TargetAttributes = {
 					C7D90C881E7A24F7008526BE = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = TU4944T6UG;
+						DevelopmentTeam = 4HZZVGNXGK;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -296,7 +306,7 @@
 			files = (
 				C7D90C971E7A24F7008526BE /* LaunchScreen.storyboard in Resources */,
 				C7D90C941E7A24F7008526BE /* Assets.xcassets in Resources */,
-				C7FC597D1E8090010051CD10 /* GoogleService-Info.plist in Resources */,
+				C762817C1FCE310D00B596A6 /* GoogleService-Info.plist in Resources */,
 				C7D90C921E7A24F7008526BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +323,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstagramFirebase/Pods-InstagramFirebase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -320,6 +331,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -530,10 +542,11 @@
 			baseConfigurationReference = DAC6056AB254A9493D320328 /* Pods-InstagramFirebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TU4944T6UG;
+				CODE_SIGN_ENTITLEMENTS = InstagramFirebase/InstagramFirebase.entitlements;
+				DEVELOPMENT_TEAM = 4HZZVGNXGK;
 				INFOPLIST_FILE = InstagramFirebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.InstagramFirebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.InstagramFirebasePush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -545,10 +558,11 @@
 			baseConfigurationReference = C967BE3F110A1370B189325D /* Pods-InstagramFirebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TU4944T6UG;
+				CODE_SIGN_ENTITLEMENTS = InstagramFirebase/InstagramFirebase.entitlements;
+				DEVELOPMENT_TEAM = 4HZZVGNXGK;
 				INFOPLIST_FILE = InstagramFirebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.InstagramFirebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.InstagramFirebasePush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
