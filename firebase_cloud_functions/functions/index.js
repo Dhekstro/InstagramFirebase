@@ -35,6 +35,9 @@ exports.observeFollowing = functions.database.ref('/following/{uid}/{followingId
           notification: {
             title: "You now have a new follower",
             body: userDoingTheFollowing.username + ' is now following you'
+          },
+          data: {
+            followerId: uid
           }
         }
 
