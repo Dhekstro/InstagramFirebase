@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 3/15/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 3/15/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         

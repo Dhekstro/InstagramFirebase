@@ -13,10 +13,10 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 // listen for Following events and then trigger a push notification
 exports.observeFollowing = functions.database.ref('/following/{uid}/{followingId}')
-  .onCreate(event => {
+  .onCreate((snapshot, context) => {
 
-    var uid = event.params.uid;
-    var followingId = event.params.followingId
+    var uid = context.params.uid;
+    var followingId = context.params.followingId
 
     // let's log out some messages
 

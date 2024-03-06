@@ -2,8 +2,8 @@
 //  UserProfileController.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 3/22/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 3/22/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
-        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
+        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
         collectionView?.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(HomePostCell.self, forCellWithReuseIdentifier: homePostCellId)
         

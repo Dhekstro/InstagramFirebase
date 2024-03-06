@@ -2,8 +2,8 @@
 //  SharePhotoController.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 4/1/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 4/1/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -55,15 +55,17 @@ class SharePhotoController: UIViewController {
     }
     
     @objc func handleShare() {
-        guard let caption = textView.text, caption.count > 0 else { return }
+        guard let caption = textView.text, !caption.isEmpty else { return }
         guard let image = selectedImage else { return }
         
-        guard let uploadData = UIImageJPEGRepresentation(image, 0.5) else { return }
+        guard let uploadData = image.jpegData(compressionQuality: 0.5) else { return }
         
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         let filename = NSUUID().uuidString
-        Storage.storage().reference().child("posts").child(filename).putData(uploadData, metadata: nil) { (metadata, err) in
+       
+        let storageRef = Storage.storage().reference().child("posts").child(filename)
+        storageRef.putData(uploadData, metadata: nil) { (metadata, err) in
             
             if let err = err {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -71,11 +73,17 @@ class SharePhotoController: UIViewController {
                 return
             }
             
-            guard let imageUrl = metadata?.downloadURL()?.absoluteString else { return }
-            
-            print("Successfully uploaded post image:", imageUrl)
-            
-            self.saveToDatabaseWithImageUrl(imageUrl: imageUrl)
+            storageRef.downloadURL(completion: { (downloadURL, err) in
+                if let err = err {
+                    print("Failed to retrieve downloadURL:", err)
+                    return
+                }
+                guard let imageUrl = downloadURL?.absoluteString else { return }
+                
+                print("Successfully uploaded post image:", imageUrl)
+                
+                self.saveToDatabaseWithImageUrl(imageUrl: imageUrl)
+            })
         }
     }
     

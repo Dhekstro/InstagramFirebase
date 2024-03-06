@@ -2,8 +2,8 @@
 //  CommentCell.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 5/2/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 5/2/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -14,9 +14,9 @@ class CommentCell: UICollectionViewCell {
         didSet {
             guard let comment = comment else { return }
             
-            let attributedText = NSMutableAttributedString(string: comment.user.username, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
+            let attributedText = NSMutableAttributedString(string: comment.user.username, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
             
-            attributedText.append(NSAttributedString(string: " " + comment.text, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
+            attributedText.append(NSAttributedString(string: " " + comment.text, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]))
             
             textView.attributedText = attributedText
             

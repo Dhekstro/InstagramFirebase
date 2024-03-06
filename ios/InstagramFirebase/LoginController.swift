@@ -2,8 +2,8 @@
 //  LoginController.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 3/24/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 3/24/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -50,7 +50,7 @@ class LoginController: UIViewController {
     }()
     
     @objc func handleTextInputChange() {
-        let isFormValid = emailTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
+        let isFormValid = emailTextField.text?.isEmpty == false && passwordTextField.text?.isEmpty == false
         
         if isFormValid {
             loginButton.isEnabled = true
@@ -88,7 +88,7 @@ class LoginController: UIViewController {
                 return
             }
             
-            print("Successfully logged back in with user:", user?.uid ?? "")
+            print("Successfully logged back in with user:", user?.user.uid ?? "")
             
             guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
             
@@ -102,9 +102,9 @@ class LoginController: UIViewController {
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
+        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
             ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)

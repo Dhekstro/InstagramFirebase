@@ -2,8 +2,8 @@
 //  UserSearchCell.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 4/13/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 4/13/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit

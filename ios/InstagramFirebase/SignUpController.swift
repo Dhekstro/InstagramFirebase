@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 3/15/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 3/15/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
@@ -26,13 +26,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             plusPhotoButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        } else if let originalImage =
-            info["UIImagePickerControllerOriginalImage"] as? UIImage {
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             plusPhotoButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
         
@@ -57,11 +54,11 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }()
     
     @objc func handleTextInputChange() {
-        let isFormValid = emailTextField.text?.count ?? 0 > 0 && usernameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
+        let isFormValid = emailTextField.text?.isEmpty == false && usernameTextField.text?.isEmpty == false && passwordTextField.text?.isEmpty == false
         
         if isFormValid {
             signUpButton.isEnabled = true
-            signUpButton.backgroundColor = .mainBlue()
+            signUpButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
         } else {
             signUpButton.isEnabled = false
             signUpButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
@@ -106,9 +103,9 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }()
     
     @objc func handleSignUp() {
-        guard let email = emailTextField.text, email.count > 0 else { return }
-        guard let username = usernameTextField.text, username.count > 0 else { return }
-        guard let password = passwordTextField.text, password.count > 0 else { return }
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let username = usernameTextField.text, !username.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error: Error?) in
             
@@ -117,60 +114,62 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                 return
             }
             
-            print("Successfully created user:", user?.uid ?? "")
+            print("Successfully created user:", user?.user.uid ?? "")
             
             guard let image = self.plusPhotoButton.imageView?.image else { return }
             
-            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+            guard let uploadData = image.jpegData(compressionQuality: 0.3) else { return }
             
             let filename = NSUUID().uuidString
-            Storage.storage().reference().child("profile_images").child(filename).putData(uploadData, metadata: nil, completion: { (metadata, err) in
+            
+            let storageRef = Storage.storage().reference().child("profile_images").child(filename)
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, err) in
                 
                 if let err = err {
                     print("Failed to upload profile image:", err)
                     return
                 }
                 
-                guard let profileImageUrl = metadata?.downloadURL()?.absoluteString else { return }
-                
-                print("Successfully uploaded profile image:", profileImageUrl)
-                
-                guard let uid = user?.uid else { return }
-                
-                guard let fcmToken = Messaging.messaging().fcmToken else { return }
-                
-                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl, "fcmToken": fcmToken]
-                let values = [uid: dictionaryValues]
-                
-                Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+                // Firebase 5 Update: Must now retrieve downloadURL
+                storageRef.downloadURL(completion: { (downloadURL, err) in
+                    guard let profileImageUrl = downloadURL?.absoluteString else { return }
                     
-                    if let err = err {
-                        print("Failed to save user info into db:", err)
-                        return
-                    }
+                    print("Successfully uploaded profile image:", profileImageUrl)
                     
-                    print("Successfully saved user info to db")
+                    guard let uid = user?.user.uid else { return }
                     
-                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                    guard let fcmToken = Messaging.messaging().fcmToken else { return }
                     
-                    mainTabBarController.setupViewControllers()
+                    let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl, "fcmToken": fcmToken]
+                    let values = [uid: dictionaryValues]
                     
-                    self.dismiss(animated: true, completion: nil)
-                    
+                    Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+                        
+                        if let err = err {
+                            print("Failed to save user info into db:", err)
+                            return
+                        }
+                        
+                        print("Successfully saved user info to db")
+                        
+                        guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                        
+                        mainTabBarController.setupViewControllers()
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    })
                 })
-
-                
             })
-            
         })
     }
     
     let alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         
-        attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
+        attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)
             ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
@@ -212,11 +211,3 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
 
 }
-
-
-
-
-
-
-
-

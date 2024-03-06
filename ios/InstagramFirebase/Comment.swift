@@ -2,8 +2,8 @@
 //  Comment.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 5/2/17.
-//  Copyright © 2017 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 5/2/17.
+//  Copyright © 2017 OmegaWare, Lda. All rights reserved.
 //
 
 import Foundation

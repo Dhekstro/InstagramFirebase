@@ -2,8 +2,8 @@
 //  CommentInputAccessoryView.swift
 //  InstagramFirebase
 //
-//  Created by Brian Voong on 1/3/18.
-//  Copyright © 2018 Lets Build That App. All rights reserved.
+//  Created by Cláudio Paulo on 1/3/18.
+//  Copyright © 2018 OmegaWare, Lda. All rights reserved.
 //
 
 import UIKit
